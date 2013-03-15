@@ -64,22 +64,6 @@ action :before_restart do
     before_fork new_resource.before_fork
   end
 
-  runit_service new_resource.name do
-    run_template_name 'unicorn'
-    log_template_name 'unicorn'
-    owner new_resource.owner if new_resource.owner
-    group new_resource.group if new_resource.group
-
-    cookbook 'application_ruby'
-    options(
-      :app => new_resource,
-      :bundler => new_resource.bundler,
-      :bundle_command => new_resource.bundle_command,
-      :rails_env => new_resource.environment_name,
-      :smells_like_rack => ::File.exists?(::File.join(new_resource.path, "current", "config.ru"))
-    )
-  end
-
 end
 
 action :after_restart do

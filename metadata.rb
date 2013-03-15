@@ -11,4 +11,3 @@ version          "2.0.0"
 end
 
 depends "application", "~> 3.0"
-depends "runit", "~> 1.0"
