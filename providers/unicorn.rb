@@ -62,6 +62,8 @@ action :before_restart do
     preload_app new_resource.preload_app
     worker_processes new_resource.worker_processes
     before_fork new_resource.before_fork
+    forked_user new_resource.forked_user
+    forked_group new_resource.forked_group
   end
 
 end

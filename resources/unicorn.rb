@@ -27,6 +27,8 @@ attribute :port, :kind_of => String, :default => "8080"
 attribute :worker_timeout, :kind_of => Integer, :default => 60
 attribute :bundler, :kind_of => [TrueClass, FalseClass, NilClass], :default => nil
 attribute :bundle_command, :kind_of => [String, NilClass], :default => nil
+attribute :forked_user, :kind_of => [String, NilClass], :default => nil
+attribute :forked_group, :kind_of => [String, NilClass], :default => nil
 
 def options(*args, &block)
   @options ||= Mash[:tcp_nodelay => true, :backlog => 100]
